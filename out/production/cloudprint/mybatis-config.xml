@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+   <properties resource="dbinfo.properties"/>
+
+    <typeAliases>
+        <typeAlias type="com.domain.po.User" alias="User"/>
+        <typeAlias type="com.domain.po.Provider" alias="Provider"/>
+        <typeAlias type="com.domain.po.Document" alias="Document"/>
+        <typeAlias type="com.domain.po.Order" alias="Order"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <!---在dbinfo.properties中读取相应信息内容，注意：用户和密码要修改成你的MySql数据库的用户和密码-->
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="com/dao/mapper/UserMapper.xml"/>
+        <mapper resource="com/dao/mapper/ProviderMapper.xml"/>
+    </mappers>
+</configuration>

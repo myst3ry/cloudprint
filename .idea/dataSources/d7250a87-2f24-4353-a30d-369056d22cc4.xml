@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="cloudprint@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="cloudprint">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="firstsql"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="itat_test"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="sys"/>
+    <table id="9" parent="2" name="advancedservices"/>
+    <table id="10" parent="2" name="basicservices"/>
+    <table id="11" parent="2" name="configs"/>
+    <table id="12" parent="2" name="documents"/>
+    <table id="13" parent="2" name="orders"/>
+    <table id="14" parent="2" name="providers"/>
+    <table id="15" parent="2" name="users"/>
+    <column id="16" parent="9" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="17" parent="9" name="content">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="18" parent="9" name="price">
+      <Position>3</Position>
+      <DataType>decimal(10,2)|0</DataType>
+    </column>
+    <column id="19" parent="9" name="createTime">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="20" parent="9" name="updateTime">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <key id="21" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="22" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="23" parent="10" name="paperType">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="24" parent="10" name="colorType">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="25" parent="10" name="singleDouble">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="26" parent="10" name="price">
+      <Position>5</Position>
+      <DataType>decimal(10,2)|0</DataType>
+    </column>
+    <column id="27" parent="10" name="createTime">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="28" parent="10" name="updateTime">
+      <Position>7</Position>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <key id="29" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="30" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="31" parent="11" name="copyNum">
+      <Position>2</Position>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="32" parent="11" name="price">
+      <Position>3</Position>
+      <DataType>decimal(10,2)|0</DataType>
+    </column>
+    <column id="33" parent="11" name="createTime">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="34" parent="11" name="updateTime">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <column id="35" parent="11" name="orderId">
+      <Position>6</Position>
+      <DataType>int(10) unsigned|0</DataType>
+    </column>
+    <column id="36" parent="11" name="documentId">
+      <Position>7</Position>
+      <DataType>int(10) unsigned|0</DataType>
+    </column>
+    <column id="37" parent="11" name="basicserviceId">
+      <Position>8</Position>
+      <DataType>int(10) unsigned|0</DataType>
+    </column>
+    <column id="38" parent="11" name="advancedserviceId">
+      <Position>9</Position>
+      <DataType>int(10) unsigned|0</DataType>
+    </column>
+    <index id="39" parent="11" name="fk_advancedservices_configs">
+      <ColNames>advancedserviceId</ColNames>
+    </index>
+    <index id="40" parent="11" name="fk_basicservices_configs">
+      <ColNames>basicserviceId</ColNames>
+    </index>
+    <index id="41" parent="11" name="fk_documents_configs">
+      <ColNames>documentId</ColNames>
+    </index>
+    <index id="42" parent="11" name="fk_orders_configs">
+      <ColNames>orderId</ColNames>
+    </index>
+    <key id="43" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="44" parent="11" name="fk_orders_configs">
+      <ColNames>orderId</ColNames>
+      <RefSchemaName>cloudprint</RefSchemaName>
+      <RefTableName>orders</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="45" parent="11" name="fk_documents_configs">
+      <ColNames>documentId</ColNames>
+      <RefSchemaName>cloudprint</RefSchemaName>
+      <RefTableName>documents</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="46" parent="11" name="fk_basicservices_configs">
+      <ColNames>basicserviceId</ColNames>
+      <RefSchemaName>cloudprint</RefSchemaName>
+      <RefTableName>basicservices</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="47" parent="11" name="fk_advancedservices_configs">
+      <ColNames>advancedserviceId</ColNames>
+      <RefSchemaName>cloudprint</RefSchemaName>
+      <RefTableName>advancedservices</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="48" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="49" parent="12" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="50" parent="12" name="pageCount">
+      <Position>3</Position>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="51" parent="12" name="documentType">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="52" parent="12" name="size">
+      <Position>5</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="53" parent="12" name="createTime">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="54" parent="12" name="updateTime">
+      <Position>7</Position>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <column id="55" parent="12" name="userId">
+      <Position>8</Position>
+      <DataType>int(10) unsigned|0</DataType>
+    </column>
+    <index id="56" parent="12" name="fk_users_documents">
+      <ColNames>userId</ColNames>
+    </index>
+    <key id="57" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="58" parent="12" name="fk_users_documents">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>cloudprint</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="59" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="60" parent="13" name="totalPrice">
+      <Position>2</Position>
+      <DataType>decimal(10,3)|0</DataType>
+    </column>
+    <column id="61" parent="13" name="status">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="62" parent="13" name="createTime">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="63" parent="13" name="updateTime">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <column id="64" parent="13" name="userId">
+      <Position>6</Position>
+      <DataType>int(10) unsigned|0</DataType>
+    </column>
+    <index id="65" parent="13" name="fk_users_orders">
+      <ColNames>userId</ColNames>
+    </index>
+    <key id="66" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="67" parent="13" name="fk_users_orders">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>cloudprint</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="68" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="69" parent="14" name="email">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="70" parent="14" name="password">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="71" parent="14" name="name">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="72" parent="14" name="address">
+      <Position>5</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="73" parent="14" name="openTime">
+      <Position>6</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="74" parent="14" name="closeTime">
+      <Position>7</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="75" parent="14" name="createTime">
+      <Position>8</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="76" parent="14" name="updateTime">
+      <Position>9</Position>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <key id="77" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="78" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="79" parent="15" name="email">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="80" parent="15" name="name">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="81" parent="15" name="password">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="82" parent="15" name="printCount">
+      <Position>5</Position>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="83" parent="15" name="tel">
+      <Position>6</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="84" parent="15" name="createTime">
+      <Position>7</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="85" parent="15" name="updateTime">
+      <Position>8</Position>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <column id="86" parent="15" name="providerId">
+      <Position>9</Position>
+      <DataType>int(10) unsigned|0</DataType>
+    </column>
+    <index id="87" parent="15" name="fk_providers_users">
+      <ColNames>providerId</ColNames>
+    </index>
+    <key id="88" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="89" parent="15" name="fk_providers_users">
+      <ColNames>providerId</ColNames>
+      <RefSchemaName>cloudprint</RefSchemaName>
+      <RefTableName>providers</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
